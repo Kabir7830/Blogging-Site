@@ -1,0 +1,31 @@
+{% extends 'user_dashboard.html' %}
+{% block contentarea %}
+{%load static%}
+<script>
+document.title = "New Bolg"
+
+</script>
+<div>
+    <br>
+    
+</div>
+<form method="POST">
+  
+    {%csrf_token%}
+
+    <div class="group">      
+        <input type="text" id="id_blog_title" name="blog_title" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Title</label>
+    </div>
+    <textarea id="id_blog_description" name="blog_description"></textarea> 
+    <script src="https://htmeditor.com/js/htmeditor.min.js" htmeditor_textarea="id_blog_description" full_screen="no" editor_height="380" run_local="no"></script>
+    <br>
+    <button type="submit" class="btn btn-success">Publish &nbsp;&nbsp;&nbsp;<img src="{%static 'images/send.png'%}" width="24px" height="24px"></img></button>
+    <br>
+    <br>
+    <br>
+</form>
+
+{% endblock contentarea %}
