@@ -1,0 +1,40 @@
+<title>Edit Blog</title>
+{% extends 'user_dashboard.html' %}
+{% block contentarea %}
+
+<div>
+    <br>
+</div>
+
+<!-- form to edit blog data -->
+<form method="POST">
+    {%csrf_token%}
+    
+    <div class="group">      
+        <input type="text" id="id_blog_title" name="blog_title" required value="{{post.blog_title}}">
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Title</label>
+    </div>
+    
+    <textarea id="id_blog_description" name="blog_description">{{post.blog_description | safe}}</textarea> 
+    
+    <!-- embedded html text editor -->
+    <script src="https://htmeditor.com/js/htmeditor.min.js" htmeditor_textarea="id_blog_description" full_screen="no" editor_height="380" run_local="no"> </script>
+    
+    <br>
+
+    <div style="position: relative;">
+        <label for="id_published">Public</label>
+        <input type="radio" name="blog_published" id="id_published" value="False" required>
+        <label for="id_published2">Private</label>
+        <input type="radio" name="blog_published" id="id_published2" value="True" required>
+    </div>
+    
+    <button type="submit" class="btn btn-success">Publish</button>
+    
+    <br><br><br>
+
+</form>
+
+{% endblock contentarea %}
