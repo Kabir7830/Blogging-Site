@@ -2,7 +2,6 @@ from django.contrib import messages
 from django.shortcuts import render,redirect
 from .models import *
 import datetime
-# Create your views here.
 
 
 def display_home(request):
